@@ -1,0 +1,27 @@
+# Evaluation configuration
+metrics:
+  - "accuracy"
+  - "f1_score"
+  - "precision"
+  - "recall"
+  - "confusion_matrix"
+
+# Visualization settings
+visualization:
+  save_attention_maps: true
+  save_predictions: true
+  attention_threshold: 0.1
+  num_samples_to_visualize: 10
+
+# Output settings
+output:
+  save_predictions: true
+  save_metrics: true
+  save_visualizations: true
+  output_format: "json"
+
+# Evaluation dataset
+dataset:
+  batch_size: 32
+  num_workers: 4
+  shuffle: false

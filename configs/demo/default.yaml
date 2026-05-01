@@ -1,0 +1,28 @@
+# Demo configuration
+demo:
+  title: "Multi-Modal Scene Understanding"
+  description: "Analyze scenes by combining visual and textual information"
+  theme: "soft"
+  
+# Model settings for demo
+model:
+  checkpoint_path: "checkpoints/best_model.pt"
+  device: "auto"  # auto, cuda, mps, cpu
+  
+# Interface settings
+interface:
+  image_height: 300
+  show_attention: true
+  max_text_length: 128
+  
+# Server settings
+server:
+  port: 7860
+  share: false
+  show_error: true
+  
+# Safety settings
+safety:
+  content_filter: true
+  max_file_size: "10MB"
+  allowed_formats: ["jpg", "jpeg", "png", "bmp"]

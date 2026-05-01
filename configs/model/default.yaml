@@ -1,0 +1,56 @@
+# Model configuration
+model:
+  vision_model: "vit-base-patch16-224"
+  text_model: "bert-base-uncased"
+  num_scene_classes: 2
+  num_object_classes: 10
+  hidden_size: 768
+  dropout: 0.1
+  freeze_backbone: false
+  pretrained: true
+
+# Training configuration
+training:
+  batch_size: 16
+  learning_rate: 1e-4
+  weight_decay: 1e-4
+  num_epochs: 50
+  warmup_epochs: 5
+  gradient_clip_norm: 1.0
+  mixed_precision: true
+  
+# Loss weights
+loss:
+  scene_weight: 1.0
+  object_weight: 1.0
+  contrastive_weight: 0.1
+  temperature: 0.07
+
+# Data configuration
+data:
+  image_size: [224, 224]
+  max_text_length: 128
+  tokenizer_name: "bert-base-uncased"
+  num_workers: 4
+  pin_memory: true
+
+# Evaluation configuration
+evaluation:
+  metrics: ["accuracy", "f1_score", "precision", "recall"]
+  save_predictions: true
+  visualize_attention: true
+
+# Logging configuration
+logging:
+  log_level: "INFO"
+  log_interval: 100
+  save_interval: 5
+  tensorboard: true
+  wandb: false
+
+# Paths
+paths:
+  data_dir: "data"
+  output_dir: "outputs"
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
